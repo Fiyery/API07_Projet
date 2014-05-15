@@ -26,7 +26,7 @@ $config->set_json('app/var/config.json');
 
 // Base de données.
 $base = Base::get_instance('UTF-8');
-// $base->add_base($config->db->host, $config->db->name, $config->db->user, $config->db->pass);
+$base->add_base($config->db->host, $config->db->name, $config->db->user, $config->db->pass);
 
 // Système de cache.
 $cache = Cache::get_instance('app/tmp/');
@@ -113,10 +113,6 @@ foreach ($list as $name => $value)
 
 $echos = ob_get_clean();
 require('app/tpl/main.php');
-
-Debug::show(sha1(md5('toto')));
-Debug::show(sha1(md5('tata')));
-Debug::show(sha1(md5('titi')));
 
 // Affichage des éléments parasites.
 if (isset($config->debug) && isset($config->debug->print_area) && $config->debug->print_area == 1)
