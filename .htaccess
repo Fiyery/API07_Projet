@@ -1,0 +1,3 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteRule ^([^\/]+)\/(([^\/]+)\/)?$ /TLH-Technologies/index.php?controller=$1&action=$3 [L]

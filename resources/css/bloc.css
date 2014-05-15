@@ -1,0 +1,50 @@
+/*	Box		*/
+.box	{	position: relative; min-height: 22px; width: 100%;	}
+
+.box .top,
+.box .center,
+.box .bottom		{	position: relative;	left: 0px; right; 0px;	}
+.box .top,
+.box .bottom		{	height: 11px;	}
+.box .top	{	top: 0px;	}
+.box .bottom	{	bottom: 0px;	}
+
+.box .top .left,
+.box .top .center,
+.box .top .right,
+.box .center .left,
+.box .center .right,
+.box .bottom .left,
+.box .bottom .center,
+.box .bottom .right	{	position: absolute;	}
+.box .top .left,
+.box .top .right,
+.box .bottom .left,
+.box .bottom .right	{	height: 11px; width: 11px; background-repeat: no-repeat; background-position: center center;	}
+.box .top .center,
+.box .bottom .center	{	height: 11px; background-repeat: repeat-x; background-position: center center;	}
+.box .center .left,
+.box .center .right	{	width: 11px; background-repeat: repeat-y; background-position: center center;	}
+
+.box .center .center	{	 margin: 0px 11px; background-position; center center;	}
+
+.box .top .left	{	top: 0px; left: 0px;	}
+.box .top .center	{	top: 0px; left: 11px; right: 11px;	}
+.box .top .right	{	top: 0px; right: 0px;	}
+
+.box .center .left	{	top: 0px; bottom: 0px; left: 0px;	}
+.box .center .right	{	top: 0px; bottom: 0px; right: 0px;	}
+
+.box .bottom .left	{	bottom: 0px; left: 0px;	}
+.box .bottom .center	{	bottom: 0px; left: 11px; right: 11px;	}
+.box .bottom .right	{	bottom: 0px; right: 0px;	}
+
+.box.blue .top .left	{	background-image: url("../img/elements/box/blue/top_left.png");	}
+.box.blue .top .center	{	background-image: url("../img/elements/box/blue/top.png");	}
+.box.blue .top .right	{	background-image: url("../img/elements/box/blue/top_right.png");	}
+.box.blue .center .left	{	background-image: url("../img/elements/box/blue/left.png");	}
+.box.blue .center .center	{	background-image: url("../img/elements/box/blue/center.png");	}
+.box.blue .center .right	{	background-image: url("../img/elements/box/blue/right.png");	}
+.box.blue .bottom .left	{	background-image: url("../img/elements/box/blue/bottom_left.png");	}
+.box.blue .bottom .center	{	background-image: url("../img/elements/box/blue/bottom.png");	}
+.box.blue .bottom .right	{	background-image: url("../img/elements/box/blue/bottom_right.png");	}

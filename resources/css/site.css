@@ -1,0 +1,137 @@
+/***************************************	Elements	************************************/
+/*	onBlur, onHover	*/
+.onBlur, :hover > .onHover	{	display: block;	}
+:hover > .onBlur, .onHover	{	display: none;	}
+
+/*	Icons	*/
+.icon	{	min-height: 24px; min-width: 24px; background-repeat: no-repeat;	}
+.icon.home	{	background-image: url("../img/icon_home.png");	}
+.icon.contact	{	background-image: url("../img/icon_contact.png");	}
+.icon.help	{	background-image: url("../img/icon_help.png");	}
+.icon.plus	{	background-image: url("../img/icon_plus.png");	}
+.icon.search	{	background-image: url("../img/icon_search.png");	}
+
+/*	Display	*/
+.display	{	position: relative;	}
+.display .begin,
+.display .content,
+.display .end	{	position: absolute; top: 0px; bottom: 0px;	}
+.display .begin,
+.display .end	{	background-repeat: no-repeat;	}
+.display .begin	{	left: 0px; background-position: top right;	}
+.display .end	{	right: 0px; background-position: top left;	}
+.display .content	{	background-repeat: repeat-x;	}
+
+/*	Main links	*/
+.mainlink	{	position: relative; display: block; height: 36px; width: 100%; line-height: 36px; text-align: center; font-size: 16px; color: transparent;
+				background-position: center center;	}
+.mainlink:visited	{	color: transparent;	}
+.mainlink:hover	{	text-decoration: none; color: transparent; border: 1px solid #ff9700; border-top: none; border-bottom: none; background-color: #ffffff;	}
+.mainlink .unfold	{	position: relative;	}
+
+/*	Lists	*/
+ul	{	margin: 0px; padding: 0px; list-style: none; text-align: left;	}
+ul li a	{	display: block; padding: 4px 15px; font-size: 16px; color: #0eb0e2;	}
+ul li a:visited	{	color: #0eb0e2;	}
+ul li a:hover	{	text-decoration: none; color: #ff9700; background-color: #ffffff;	}
+ul.categories	{	 position: absolute; top: 100%; left: 0px; right: 0px; border: 1px solid #ff9700; border-top: none; background: url("../img/bg_menu.png") repeat repeat top left;	}
+ul.categories li.categorie	{	position: relative;	}
+ul.categories li.categorie div.onHover	{	position: absolute; top: 0px; left: 100%; width: 150px;	}
+ul.subcategories	{	 position: absolute; top: 100%; left: 0px; right: 0px; border: 1px solid #ff9700; border-top: none; background: url("../img/bg_menu.png") repeat repeat top left;	}
+
+/*	Forms	*/
+form .line	{	text-align: right;	}
+
+/*	Center content	*/
+.center	{	margin: 0px auto;	}
+.center.large	{	width: 350px;	}
+
+/*	Jumbotron	*/
+.jumbotron .container .row > div	{	padding: 0px;	}
+
+/*	Text	*/
+strong	{	 color: #ff9700;	}
+h1	{	margin: 4px 0px 8px; font-size: 24px;	}
+
+/*									Surcharge sm - width < 992px						   */
+@media (min-width: 768px)	{
+}
+
+/*									Surcharge md - width < 1200px						   */
+@media (min-width: 992px)	{
+	.mainlink	{	background-position: 12px center; font-size: 16px;	}
+	.mainlink.small {	font-size: 12px;	}
+	.mainlink,
+	.mainlink:visited	{	color: #eeeeee;	}
+	.mainlink:hover	{	color: #ff9700;	}
+}
+
+/*									Surcharge lg - width > 1200px						   */
+@media (min-width: 1200px)	{
+	.mainlink.small {	font-size: 16px;	}
+}
+
+/***************************************	Structure	************************************/
+/*								Taille xs par défaut - width < 768px					   */
+/*	Page 	*/
+html	{	height: 100%;	}
+body	{	position: relative; height: 100%; font-size: 12px;
+			color: #162d3f;  background: url("../img/bg_body.png") repeat repeat top left #6794d2;	}
+
+/*	Contenaire	*/
+#Wrapper	{	min-height: 100%; height: auto; margin: 0px 0px -24px; padding: 36px 0px 24px;	}
+
+/*	Ligne d'Entête */
+#HeaderRow	{	position: absolute; top: 0px; left: 0px; right: 0px; z-index: 20; height: 36px; margin: 0px; padding: 0px; background: #162d3f;	}
+
+#SearchBox	{	position: relative; padding: 6px 36px 6px 6px;	}
+#SearchBox .data	{	width: 100%;	}
+#SearchBox .icon.search	{	position: absolute; top: 0px; bottom: 0px; right: 6px; background-position: center center; cursor: pointer;	}
+#SearchBox a,
+#SearchBox .hide	{	display: none;	}
+
+/*	Bannière	*/
+#Banner	{	margin: 0px; padding: 0px; background: url("../img/bg_banner.png") repeat repeat top left #6794d2;	}
+#Banner .display.logo	{	height: 96px;	}
+#Banner .display.logo .begin	{	width: 18px;	}
+#Banner .display.logo .end	{	width: 48px;	}
+#Banner .display.logo .begin	{	background-image: url("../img/elements/display/banner/begin.png");	}
+#Banner .display.logo .content	{	left: 18px; right: 48px; background-image: url("../img/elements/display/banner/bg.png");	}
+#Banner .display.logo .end	{	background-image: url("../img/elements/display/banner/end.png");	}
+#Banner h1	{	margin: 0px; color: #aaaaaa;	}
+#Banner h1 .emphasis	{	color: #ff9700;	}
+
+/*	Corp principal */
+#MainBody	{	min-height: 100%;	}
+
+/*	Ligne principale */
+#MainRow	{	min-height: 100%; padding-top: 8px;	}
+
+/*	Contenu principal	*/
+#MainMenu	{	min-height: 100%; padding: 0px;	}
+
+#MainContent	{	min-height: 100%; padding: 0px;	}
+#MainContent .content,
+#MainContent .success_box,
+#MainContent .error_box,
+#MainContent .info_box	{	margin: 0px 0px 16px; padding: 8px 16px; text-align: justify; background: #ffffff;	}
+#MainContent .content	{	border: 1px solid #ff9700; color: #333333;	}
+#MainContent .success_box	{	border: 1px solid #00db39; color: #00db39;	}
+#MainContent .error_box	{	border: 1px solid #ff2300; color: #ff2300;	}
+#MainContent .info_box	{	border: 1px solid #0c5aa6; color: #0c5aa6;	}
+
+/*	Pied de page	*/
+#Footer	{	margin: 0px; padding: 0px; background: url("../img/bg_banner.png") repeat repeat top left #6794d2;	}
+#Footer .display	{	height: 24px;	}
+#Footer .display .begin,
+#Footer .display .end	{	width: 12px;	}
+#Footer .display .begin	{	background-image: url("../img/elements/display/footer/begin.png");	}
+#Footer .display .content	{	left: 12px; right: 12px; text-align: center; background-image: url("../img/elements/display/footer/bg.png");	}
+#Footer .display .end	{	background-image: url("../img/elements/display/footer/end.png");	}
+#Footer span,
+#Footer a	{	display: inline-block; line-height: 24px; padding-left: 16px; font-style: italic; font-size: smaller;	}
+#Footer *:first-child	{	padding-left: 0px;	}
+#Footer span	{	color: #cccccc;	}
+#Footer a,
+#Footer a:visited	{	color: #aaaaaa;	}
+#Footer a:hover	{	color: #ffffff;	}
