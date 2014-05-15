@@ -14,21 +14,21 @@ class home
 			if (empty($this->req->login) || empty($this->req->pass))
 			{
 				$this->site->add_message("Votre identifiant ou mot de passe sont invalides", Site::ALERT_ERROR);
-				$this->site->redirect($this->site->get_root().'admin/');
+				$this->site->redirect($this->site->get_root().'home/');
 			}
-			$admins = Administrator::search('pseudo', $this->req->login);
-			if (is_array($admins) == FALSE && count($admins) == 0)
+			$users = User::search('email', $this->req->login);
+			if (is_array($users) == FALSE && count($users) == 0)
 			{
 				$this->site->add_message("Votre identifiant ou mot de passe sont invalides", Site::ALERT_ERROR);
-				$this->site->redirect($this->site->get_root().'admin/');
+				$this->site->redirect($this->site->get_root().'home/');
 			}
 			$pass = sha1(md5($this->req->pass));
-			if ($admins[0]->pass != $pass)
+			if ($users[0]->mdp != $pass)
 			{
 				$this->site->add_message("Votre identifiant ou mot de passe sont invalides", Site::ALERT_ERROR);
-				$this->site->redirect($this->site->get_root().'admin/');
+				$this->site->redirect($this->site->get_root().'home/');
 			}
-			$this->session->open($admins[0]);
+			$this->session->open($users[0]);
 			$this->site->add_message("Connexion réussie", Site::ALERT_OK);
 		}
 		$this->site->redirect($this->site->get_root().'fiche/');

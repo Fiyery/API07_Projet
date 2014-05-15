@@ -26,7 +26,7 @@ $config->set_json('app/var/config.json');
 
 // Base de données.
 $base = Base::get_instance('UTF-8');
-// $base->add_base($config->db->host, $config->db->name, $config->db->user, $config->db->pass);
+$base->add_base($config->db->host, $config->db->name, $config->db->user, $config->db->pass);
 
 // Système de cache.
 $cache = Cache::get_instance('app/tmp/');
