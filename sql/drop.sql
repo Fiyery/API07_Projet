@@ -1,21 +1,33 @@
-USE `tlh_technologies`;
+USE `api07_projet`;
 
 --
--- Contraintes pour la table `sous_menu`
+-- Contraintes pour la table `vaccination`
 --
-DROP CONSTRAINT IF EXISTS `sous_menu_ibfk_1`;
+ALTER TABLE `vaccination`
+	DROP FOREIGN KEY `vaccination_ibfk_1`;
 
 --
--- La table `sous_menu`
+-- Contraintes pour la table `maladie`
 --
-DROP TABLE IF EXISTS `sous_menu`;
+ALTER TABLE `maladie`
+	DROP FOREIGN KEY `maladie_ibfk_1`;
 
 --
--- La table `menu`
+-- La table `user`
 --
-DROP TABLE IF EXISTS `menu`;
+DROP TABLE IF EXISTS `user`;
+
+--
+-- La table `vaccination`
+--
+DROP TABLE IF EXISTS `vaccination`;
+
+--
+-- La table `maladie`
+--
+DROP TABLE IF EXISTS `maladie`;
 
 --
 -- Base de données
 --
-DROP DATABASE IF EXISTS `tlh_technologies`;
+DROP DATABASE IF EXISTS `api07_projet`;

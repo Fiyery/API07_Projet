@@ -1,41 +1,53 @@
 --
 -- Base de données: `tlh_technologies`
 --
-CREATE DATABASE IF NOT EXISTS `tlh_technologies` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `tlh_technologies`;
+CREATE DATABASE IF NOT EXISTS `api07_projet` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `api07_projet`;
 
 --
--- Structure de la table `menu`
+-- Structure de la table `user`
 --
-CREATE TABLE IF NOT EXISTS `menu` (
+CREATE TABLE IF NOT EXISTS `user` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
-	`name` varchar(30) CHARACTER SET latin1 NOT NULL,
-	`enable` tinyint(1) NOT NULL,
-	`content` text CHARACTER SET latin1 NOT NULL,
-	`date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	`date_modification` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	`order` int(11) NOT NULL,
+	`nom` varchar(30) CHARACTER SET latin1 NOT NULL,
+	`prenom` varchar(30) CHARACTER SET latin1 NOT NULL,
+	`name` ENUM('employee', 'secretaire', 'medecin'),
+	`civilite` ENUM('M', 'Mme', 'Mlle'),
+	`tel` varchar(10),
+	`email` varchar(100),
 	PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 
 --
--- Structure de la table `sous_menu`
+-- Structure de la table `vaccination`
 --
-CREATE TABLE IF NOT EXISTS `sous_menu` (
+CREATE TABLE IF NOT EXISTS `vaccination` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
-	`name` varchar(30) CHARACTER SET latin1 NOT NULL,
-	`enable` tinyint(1) NOT NULL,
-	`content` text CHARACTER SET latin1 NOT NULL,
-	`date_creation` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	`date_modification` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	`order` int(11) NOT NULL,
-	`id_menu` int(11) NOT NULL,
-	PRIMARY KEY (`id`),
-	KEY `id_menu` (`id_menu`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+	`user` int(11) NOT NULL,
+	`nom` varchar(30) CHARACTER SET latin1 NOT NULL,
+	`date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 
 --
--- Contraintes pour la table `sous_menu`
+-- Contraintes pour la table `vaccination`
 --
-ALTER TABLE `sous_menu`
-	ADD CONSTRAINT `sous_menu_ibfk_1` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id`);
+ALTER TABLE `vaccination`
+	ADD CONSTRAINT `vaccination_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id`);
+
+--
+-- Structure de la table `maladie`
+--
+CREATE TABLE IF NOT EXISTS `maladie` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`user` int(11) NOT NULL,
+	`nom` varchar(30) CHARACTER SET latin1 NOT NULL,
+	`date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+
+--
+-- Contraintes pour la table `maladie`
+--
+ALTER TABLE `maladie`
+	ADD CONSTRAINT `maladie_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id`);
