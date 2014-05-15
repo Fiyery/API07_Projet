@@ -26,7 +26,7 @@ $config->set_json('app/var/config.json');
 
 // Base de données.
 $base = Base::get_instance('UTF-8');
-$base->add_base($config->db->host, $config->db->name, $config->db->user, $config->db->pass);
+// $base->add_base($config->db->host, $config->db->name, $config->db->user, $config->db->pass);
 
 // Système de cache.
 $cache = Cache::get_instance('app/tmp/');
@@ -88,11 +88,6 @@ if ($executed == FALSE && $content === FALSE)
 }
 $view->content = $content;
 
-// Initialisation du controller du menu.
-$controller->load('navigation_menu', 'init');
-$controller->execute();
-$view->list_menu_links = $controller->show();
-
 // Gestion des messages serveurs.
 $msg_list = $site->list_messages();
 if (empty($msg_list) == FALSE)
@@ -118,6 +113,10 @@ foreach ($list as $name => $value)
 
 $echos = ob_get_clean();
 require('app/tpl/main.php');
+
+Debug::show(sha1(md5('toto')));
+Debug::show(sha1(md5('tata')));
+Debug::show(sha1(md5('titi')));
 
 // Affichage des éléments parasites.
 if (isset($config->debug) && isset($config->debug->print_area) && $config->debug->print_area == 1)
