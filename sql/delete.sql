@@ -1,11 +1,16 @@
-USE `tlh_technologies`;
+USE `api07_projet`;
 
 --
--- Contenu de la table `sous_menu`
+-- Contenu de la table `user`
 --
-DELETE FROM `sous_menu`;
+DELETE FROM `user`;
 
 --
--- Contenu de la table `menu`
+-- Contenu de la table `vaccination`
 --
-DELETE FROM `menu`;
+DELETE FROM `vaccination`;
+
+--
+-- Contenu de la table `maladie`
+--
+DELETE FROM `maladie`;
