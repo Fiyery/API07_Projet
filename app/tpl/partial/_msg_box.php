@@ -6,12 +6,6 @@
 	</div>
 <?php endif; ?>
 
-<?php
-	$success_list = "<span>test</span>";
-	$error_list = "<span>test</span>";
-	$info_list = "<span>test</span>";
-?>
-
 <?php if (isset($success_list)) : ?>
 	<div class='success_box'>
 		<?= $success_list ?>

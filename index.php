@@ -26,7 +26,7 @@ $config->set_json('app/var/config.json');
 
 // Base de données.
 $base = Base::get_instance('UTF-8');
-$base->add_base($config->db->host, $config->db->name, $config->db->user, $config->db->pass);
+// $base->add_base($config->db->host, $config->db->name, $config->db->user, $config->db->pass);
 
 // Système de cache.
 $cache = Cache::get_instance('app/tmp/');
@@ -87,11 +87,6 @@ if ($executed == FALSE && $content === FALSE)
 	$content = $controller->show();
 }
 $view->content = $content;
-
-// Initialisation du controller du menu.
-$controller->load('navigation_menu', 'init');
-$controller->execute();
-$view->list_menu_links = $controller->show();
 
 // Gestion des messages serveurs.
 $msg_list = $site->list_messages();
