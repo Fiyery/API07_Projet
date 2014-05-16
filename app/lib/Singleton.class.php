@@ -51,10 +51,6 @@ class Singleton
 	public static function reset_instance()
 	{
 		$class = get_called_class();
-		if (!property_exists($class,'_instance') == FALSE)
-		{
-			return NULL;
-		}
 		$class::$_instance = NULL;
 	}
 }

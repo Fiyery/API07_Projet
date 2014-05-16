@@ -43,9 +43,11 @@ $site = Site::get_instance();
 
 // Toolbox des requêtes.
 $req = Request::get_instance();
+$req->secure_html(TRUE);
 
 // Toolbox de la session.
 $session = Session::get_instance();
+$session->start();
 
 // Gestion des paramètre à envoyer à la vue.
 $view = View::get_instance();
@@ -58,7 +60,8 @@ $vars = array(
 	'view' => $view,
 	'site' => $site,
 	'req' => $req,
-	'session' => $session
+	'session' => $session,
+	'base' => $base
 );
 
 // Définition générale du manager de controllers.
