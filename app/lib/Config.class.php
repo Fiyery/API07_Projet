@@ -50,7 +50,7 @@ class Config extends Singleton
 		{
 			return FALSE;
 		}
-		$this->_json = json_decode(file_get_contents($file));
+		$this->_json = json_decode(gzinflate(str_rot13(base64_decode(file_get_contents($file)))));
 		return (is_object($this->_json));
 	}
 }

@@ -82,7 +82,7 @@ class Session extends Singleton
 		// Le cookie n'est pas détruit en fonction du temps mais mannuellement.
 		ini_set('session.cookie_lifetime', 0);
 		// Le nombre de seconde d'une session.
-		ini_set('session.gc_maxlifetime', 1800); // 30 minutes.
+		ini_set('session.gc_maxlifetime', 180); // 30 minutes.
 		// Si pas de session déjà chargée, on charge la session.
 		if (session_id() == '')
 		{

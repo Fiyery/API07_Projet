@@ -3,3 +3,29 @@ RewriteEngine On
 RewriteCond %{QUERY_STRING} !=""
 RewriteRule ^([^\/]+)\/(([^\/]+)\/)?$ /API07_Projet/index.php?controller=$1&action=$3&%{QUERY_STRING} [L]
 RewriteRule ^([^\/]+)\/(([^\/]+)\/)?$ /API07_Projet/index.php?controller=$1&action=$3 [L]
+
+# INTERDIRE L'ACCES AU FICHIER .htaccess DANS LE NAVIGATEUR.
+<Files .htaccess>
+	order allow,deny
+	deny from all
+</Files>
+
+# INTERDIRE L'INDEXATION DES DOSSIERS DANS LE NAVIGATEUR.
+Options -Indexes
+
+# SEUL LE FICHIER index.php EST SERVI COMME PREMIER FICHIER PAR DEFAUT. LES AUTRES SONT INTERDITS.
+DirectoryIndex index.php
+
+# INTERDIRE LES AUTRES TYPES DE FICHIER INDEX.
+<Files ~ "^(index)\.(p?s?x?htm?|txt|aspx?|cfml?|cgi|pl|php[3-9]|jsp|xml)$">
+	order allow,deny
+	deny from all
+</Files>
+
+# EX�CUT�S PAR LE SERVEUR MAIS INTERDIT D'AFFICHAGE PAR LE NAVIGATEUR WEB DE CERTAINS FORMATS DE FICHIER.
+<Files ~ "\.(inc|class|sql|ini|conf|exe|dll|bin|tpl|bkp|dat|c|h|py|spd|theme|module)$">
+	deny from all
+</Files>
+
+# REDIRECTION DES ERREURS.
+ErrorDocument 404 http://127.0.0.1/API07_Projet/error/not_found/

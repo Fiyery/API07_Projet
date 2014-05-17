@@ -26,11 +26,17 @@ class home
 			$bfa = BFA::get_instance();
 			if ($bfa->wait())
 			{
+				// Sauvegarde de l'IP.
+				if (isset($_SERVER['REMOTE_ADDR']))
+				{
+					$content = (file_exists('blacklist.txt')) ? (file_get_contents('blacklist.txt')) : ('');
+					file_put_contents('blacklist.txt', $_SERVER['REMOTE_ADDR'].' : '.date('d/m/Y h:i:s')."\r\n");
+				}
 				$this->site->add_message("Vous devez patienter avant une nouvelle tentative", Site::ALERT_ERROR);
 				$this->site->redirect($this->site->get_root().'home/');
 			}
 			// Traitement connexion.
-			if (empty($this->req->login) || empty($this->req->pass))
+			if (empty($this->req->login) || empty($this->req->pass) || preg_match(Regex::MAIL, $this->req->login) == FALSE)
 			{
 				$this->site->add_message("Votre identifiant ou mot de passe sont invalides", Site::ALERT_ERROR);
 				$this->site->redirect($this->site->get_root().'home/');
@@ -47,6 +53,7 @@ class home
 				$this->site->add_message("Votre identifiant ou mot de passe sont invalides", Site::ALERT_ERROR);
 				$this->site->redirect($this->site->get_root().'home/');
 			}
+			$bfa->reset();
 			$this->session->open($users[0]);
 			$this->site->add_message("Connexion réussie", Site::ALERT_OK);
 		}
