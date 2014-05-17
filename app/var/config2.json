@@ -1,0 +1,16 @@
+{
+	"db" : {
+		"host" : "localhost",
+		"name" : "api07_projet",
+		"user" : "root",
+		"pass" : ""
+	},
+	
+	"debug" : {
+		"print_area" : 1
+	},
+	
+	"cache" : {
+		"enable" : 1
+	}
+}

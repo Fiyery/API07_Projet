@@ -30,7 +30,7 @@ class BFA extends SingletonSession
 	 * Limite d'accès.
 	 * @var int
 	 */
-	private $_limit_count = 5;
+	private $_limit_count = 6;
 	
 	/**
 	 * Constructeur.
@@ -55,15 +55,7 @@ class BFA extends SingletonSession
 				return TRUE;
 			}
 		}
-		if ($this->_time + 60 > time())
-		{
-			$this->_count++;
-			$this->_time = time();
-		}
-		else
-		{
-			$this->reset();
-		}
+		$this->_time = time();
 		$this->_count++;
 		return FALSE;
 	}	
